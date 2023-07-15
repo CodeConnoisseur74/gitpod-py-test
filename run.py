@@ -12,10 +12,24 @@ BACKSIDE = 'backside'
 
 
 def main():
-    print()
+    print("Welcome to Blackjack!")
+    while True:
+        print("\n--- Start Menu ---")
+        print("1. Play Blackjack")
+        print("2. Quit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            playBlackjack()
+        elif choice == "2":
+            print("Thanks for playing!")
+            sys.exit()
+        else:
+            print("Invalid choice. Please try again.")
 
 
-def playBlackJack():
+def playBlackjack():
     print('''Blackjack:
 
     Rules:
@@ -117,6 +131,21 @@ def playBlackJack():
 
         input('Press Enter to continue...')
         print('\n\n')
+
+        # Handle the end of the round options:
+        print("\n--- End of Round ---")
+        print("1. Play a New Game")
+        print("2. Quit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            continue  # Continue to a new game
+        elif choice == "2":
+            print("Thanks for playing!")
+            sys.exit()
+        else:
+            print("Invalid choice. Choose either the number key: 1 or 2.")
 
 
 def getBet(maxBet):
