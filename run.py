@@ -1,5 +1,6 @@
 """Blackjack."""
 
+from ascii_magic import AsciiArt
 import random
 import sys
 
@@ -9,12 +10,12 @@ DIAMONDS = chr(9830)  # Character 9830 is '♦'.
 SPADES = chr(9824)  # Character 9824 is '♠'.
 CLUBS = chr(9827)  # Character 9827 is '♣'.
 BACKSIDE = 'backside'
+my_art = AsciiArt.from_image('blackjack.png')
 
 
 def main():
-    print("Welcome to Blackjack!")
     while True:
-        print("\n--- Start Menu ---")
+        my_art.to_terminal(columns=80, width_ratio=1)
         print("1. Play Blackjack")
         print("2. Quit")
 
