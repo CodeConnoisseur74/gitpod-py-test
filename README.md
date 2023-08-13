@@ -35,7 +35,7 @@ Battleship Py is a CLI (Command-Line Interface) game that can be run with little
 
 | ID | As a... | I Want To Be Able To... | So That I Can...|
 | --- | --- | --- | --- |
-| 01 | Game Enthusiast | a simple strategy game | Simple instructions at beginning of game. I have the ability to strategically place my ships as I can with the board game. Game also gives me contant score updates and feedback on invalid coordinates, as well as if I have won or lost.|
+| 01 | Game Enthusiast | a simple card game | Simple instructions at beginning of game. I have the ability to strategically place my ships as I can with the board game. Game also gives me contant score updates and feedback on invalid coordinates, as well as if I have won or lost.|
 | 02 | Older middle-aged vintage computers enthusiast| Classic CLI game for nostalgia.| I can relive my childhood by running a good old fashioined commandline game.Easy to run and can play whilst doing other tasks on my computer.|
 | 03 | Young student learning python | I can play games like my parents did back in the day and have fun studying at school.| I can run this on single board computer projects for school and hobby.|
 

@@ -11,11 +11,12 @@ SPADES = chr(9824)  # Character 9824 is '♠'.
 CLUBS = chr(9827)  # Character 9827 is '♣'.
 BACKSIDE = 'backside'
 my_art = AsciiArt.from_image('blackjack.png')
+my_output = my_art.to_ascii(columns=80, char='*')
 
 
 def main():
     while True:
-        my_art.to_terminal(columns=80, width_ratio=1)
+        print(my_output)
         print("1. Play Blackjack")
         print("2. Quit")
 
