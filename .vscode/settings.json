@@ -21,7 +21,12 @@
    },
    "files.autoSave": "afterDelay",
    "workbench.colorTheme": "Visual Studio Dark",
-   "editor.defaultFormatter": "ms-python.python",
+   "editor.defaultFormatter": null,
    "editor.formatOnSave": true,
-   "editor.formatOnPaste": false
+   "editor.formatOnPaste": false,
+   "python.formatting.provider": "black",
+   "[python]": {
+      "editor.defaultFormatter": "ms-python.black-formatter"
+   },
+   "editor.wordWrap": "on"
 }
