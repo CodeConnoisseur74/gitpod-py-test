@@ -250,7 +250,8 @@ def displayCards(cards):
 
 
 def getMove(playerHand, money):
-    """Asks the player for their move, and returns 'H' for hit, 'S' for
+    """Asks the player for their move,
+    and returns 'H' for hit, 'S' for
     stand, and 'D' for double down."""
     while True:
         # Determine what moves the player can make:
@@ -271,7 +272,10 @@ def getMove(playerHand, money):
             return move  # Player has entered a valid move.
         else:
             print(
-                "Invalid choice. Please choose one of the available moves: H (Hit), S (Stand), or D (Double down)."
+                """
+                Invalid choice. Please choose:
+                H (Hit), S (Stand), or D (Double down).
+                """
             )
 
 
