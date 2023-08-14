@@ -167,6 +167,8 @@ def getBet(maxBet):
         bet = int(bet)
         if 1 <= bet <= maxBet:
             return bet  # Player entered a valid bet.
+        else:
+            print("Too much! Please bet between 1 and {}.".format(maxBet))
 
 
 def getDeck():
