@@ -23,7 +23,7 @@ def main():
         choice = input("Enter your choice: ")
 
         if choice == "1":
-            playBlackjack()
+            play_blackjack()
         elif choice == "2":
             print("Thanks for playing!")
             sys.exit()
@@ -31,7 +31,7 @@ def main():
             print("Invalid choice. Please try again.")
 
 
-def playBlackjack():
+def play_blackjack():
     print(
         """Blackjack:
 
@@ -59,42 +59,42 @@ def playBlackjack():
 
         # Let the player enter their bet for this round:
         print("Money:", money)
-        bet = getBet(money)
+        bet = get_bet(money)
 
         # Give the dealer and player two cards from the deck each:
-        deck = getDeck()
-        dealerHand = [deck.pop(), deck.pop()]
-        playerHand = [deck.pop(), deck.pop()]
+        deck = get_deck()
+        dealer_hand = [deck.pop(), deck.pop()]
+        player_hand = [deck.pop(), deck.pop()]
 
         # Handle player actions:
         print("Bet:", bet)
         while True:  # Keep looping until player stands or busts.
-            displayHands(playerHand, dealerHand, False)
+            display_hands(player_hand, dealer_hand, False)
             print()
 
             # Check if the player has bust:
-            if getHandValue(playerHand) > 21:
+            if get_hand_value(player_hand) > 21:
                 break
 
             # Get the player's move, either H, S, or D:
-            move = getMove(playerHand, money - bet)
+            move = get_move(player_hand, money - bet)
 
             # Handle the player actions:
             if move == "D":
                 # Player is doubling down, they can increase their bet:
-                additionalBet = getBet(min(bet, (money - bet)))
+                additionalBet = get_bet(min(bet, (money - bet)))
                 bet += additionalBet
                 print("Bet increased to {}.".format(bet))
                 print("Bet:", bet)
 
             if move in ("H", "D"):
                 # Hit/doubling down takes another card.
-                newCard = deck.pop()
-                rank, suit = newCard
+                new_card = deck.pop()
+                rank, suit = new_card
                 print("You drew a {} of {}.".format(rank, suit))
-                playerHand.append(newCard)
+                player_hand.append(new_card)
 
-                if getHandValue(playerHand) > 21:
+                if get_hand_value(player_hand) > 21:
                     # The player has busted:
                     continue
 
@@ -103,34 +103,34 @@ def playBlackjack():
                 break
 
         # Handle the dealer's actions:
-        if getHandValue(playerHand) <= 21:
-            while getHandValue(dealerHand) < 17:
+        if get_hand_value(player_hand) <= 21:
+            while get_hand_value(dealer_hand) < 17:
                 # The dealer hits:
                 print("Dealer hits...")
-                dealerHand.append(deck.pop())
-                displayHands(playerHand, dealerHand, False)
+                dealer_hand.append(deck.pop())
+                display_hands(player_hand, dealer_hand, False)
 
-                if getHandValue(dealerHand) > 21:
+                if get_hand_value(dealer_hand) > 21:
                     break  # The dealer has busted.
                 input("Press Enter to continue...")
                 print("\n\n")
 
         # Show the final hands:
-        displayHands(playerHand, dealerHand, True)
+        display_hands(player_hand, dealer_hand, True)
 
-        playerValue = getHandValue(playerHand)
-        dealerValue = getHandValue(dealerHand)
+        player_value = get_hand_value(player_hand)
+        dealer_value = get_hand_value(dealer_hand)
         # Handle whether the player won, lost, or tied:
-        if dealerValue > 21:
+        if dealer_value > 21:
             print("Dealer busts! You win ${}!".format(bet))
             money += bet
-        elif (playerValue > 21) or (playerValue < dealerValue):
+        elif (player_value > 21) or (player_value < dealer_value):
             print("You lost!")
             money -= bet
-        elif playerValue > dealerValue:
+        elif player_value > dealer_value:
             print("You won ${}!".format(bet))
             money += bet
-        elif playerValue == dealerValue:
+        elif player_value == dealer_value:
             print("It's a tie, the bet is returned to you.")
 
         input("Press Enter to continue...")
@@ -152,10 +152,10 @@ def playBlackjack():
             print("Invalid choice. Choose either the number key: 1 or 2.")
 
 
-def getBet(maxBet):
+def get_bet(max_bet):
     """Ask the player how much they want to bet for this round."""
     while True:  # Keep asking until they enter a valid amount.
-        print("How much do you bet? (1-{}, or QUIT)".format(maxBet))
+        print("How much do you bet? (1-{}, or QUIT)".format(max_bet))
         bet = input("> ").upper().strip()
         if bet == "QUIT":
             print("Thanks for playing!")
@@ -165,13 +165,13 @@ def getBet(maxBet):
             continue  # If the player didn't enter a number, ask again.
 
         bet = int(bet)
-        if 1 <= bet <= maxBet:
+        if 1 <= bet <= max_bet:
             return bet  # Player entered a valid bet.
         else:
-            print("Too much! Please bet between 1 and {}.".format(maxBet))
+            print("Too much! Please bet between 1 and {}.".format(max_bet))
 
 
-def getDeck():
+def get_deck():
     """Return a list of (rank, suit) tuples for all 52 cards."""
     deck = []
     for suit in (HEARTS, DIAMONDS, SPADES, CLUBS):
@@ -183,42 +183,42 @@ def getDeck():
     return deck
 
 
-def displayHands(playerHand, dealerHand, showDealerHand):
+def display_hands(player_hand, dealer_hand, show_dealer_hand):
     """Show the player's and dealer's cards. Hide the dealer's first
     card if showDealerHand is False."""
     print()
-    if showDealerHand:
-        print("DEALER:", getHandValue(dealerHand))
-        displayCards(dealerHand)
+    if show_dealer_hand:
+        print("DEALER:", get_hand_value(dealer_hand))
+        display_cards(dealer_hand)
     else:
         print("DEALER: ???")
         # Hide the dealer's first card:
-        displayCards([BACKSIDE] + dealerHand[1:])
+        display_cards([BACKSIDE] + dealer_hand[1:])
 
     # Show the player's cards:
-    print("PLAYER:", getHandValue(playerHand))
-    displayCards(playerHand)
+    print("PLAYER:", get_hand_value(player_hand))
+    display_cards(player_hand)
 
 
-def getHandValue(cards):
+def get_hand_value(cards):
     """Returns the value of the cards. Face cards are worth 10, aces are
     worth 11 or 1 (this function picks the most suitable ace value)."""
     value = 0
-    numberOfAces = 0
+    number_of_aces = 0
 
     # Add the value for the non-ace cards:
     for card in cards:
         rank = card[0]  # card is a tuple like (rank, suit)
         if rank == "A":
-            numberOfAces += 1
+            number_of_aces += 1
         elif rank in ("K", "Q", "J"):  # Face cards are worth 10 points.
             value += 10
         else:
             value += int(rank)  # Numbered cards are worth their number.
 
     # Add the value for the aces:
-    value += numberOfAces  # Add 1 per ace.
-    for i in range(numberOfAces):
+    value += number_of_aces  # Add 1 per ace.
+    for i in range(number_of_aces):
         # If another 10 can be added without busting, do so:
         if value + 10 <= 21:
             value += 10
@@ -226,7 +226,7 @@ def getHandValue(cards):
     return value
 
 
-def displayCards(cards):
+def display_cards(cards):
     """Display all the cards in the cards list."""
     rows = ["", "", "", "", ""]  # The text to display on each row.
 
@@ -249,7 +249,7 @@ def displayCards(cards):
         print(row)
 
 
-def getMove(playerHand, money):
+def get_move(player_hand, money):
     """Asks the player for their move,
     and returns 'H' for hit, 'S' for
     stand, and 'D' for double down."""
@@ -259,12 +259,12 @@ def getMove(playerHand, money):
 
         # The player can double down on their first move, which we can
         # tell because they'll have exactly two cards:
-        if len(playerHand) == 2 and money > 0:
+        if len(player_hand) == 2 and money > 0:
             moves.append("(D)ouble down")
 
         # Get the player's move:
-        movePrompt = ", ".join(moves) + "> "
-        move = input(movePrompt).upper()
+        move_prompt = ", ".join(moves) + "> "
+        move = input(move_prompt).upper()
 
         if move in ("H", "S"):
             return move  # Player has entered a valid move.
