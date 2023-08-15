@@ -1,6 +1,5 @@
 """Blackjack."""
 
-from ascii_magic import AsciiArt
 import random
 import sys
 
@@ -10,13 +9,12 @@ DIAMONDS = chr(9830)  # Character 9830 is '♦'.
 SPADES = chr(9824)  # Character 9824 is '♠'.
 CLUBS = chr(9827)  # Character 9827 is '♣'.
 BACKSIDE = "backside"
-my_art = AsciiArt.from_image("blackjack.png")
-my_output = my_art.to_ascii(columns=80, char="*")
 
 
+# Initiate game menu
 def main():
     while True:
-        print(my_output)
+        print("Welcome to Blackjack!")
         print("1. Play Blackjack")
         print("2. Quit")
 
@@ -54,14 +52,14 @@ def play_blackjack():
         if money <= 0:
             print("You're broke!")
             print("Good thing you weren't playing with real money.")
-            print("Thanks for playing!")
+            print("Thank-you for playing!")
             sys.exit()
 
         # Let the player enter their bet for this round:
         print("Money:", money)
         bet = get_bet(money)
 
-        # Give the dealer and player two cards from the deck each:
+        # Give the dealer and player two cards each from the deck:
         deck = get_deck()
         dealer_hand = [deck.pop(), deck.pop()]
         player_hand = [deck.pop(), deck.pop()]
