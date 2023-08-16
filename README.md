@@ -267,4 +267,3 @@ The following steps can be used to clone the GitHub repository:
 
 *[Real Python](https://realpython.com/lessons/random-data-generation-python/)
 
-- Any other credits
