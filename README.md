@@ -1,4 +1,4 @@
-Readme.md 
+Readme.md
 
 # **BLACKJACK PY**
 
@@ -7,6 +7,7 @@ Readme.md
 [Link to Live Project](https://battleship-py.herokuapp.com/)
 
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [UX](#ux)
   - [User Stories](#user-stories)
@@ -27,7 +28,13 @@ Readme.md
 
 ## Introduction
 
-Battleship Py is a CLI (Command-Line Interface) game that can be run with little processor power. The player battles against the computer in a classic strategic war game made famous by Hasbro as a board game classic. Like the board game, the player has the ability to strategically place the ships on the 10 X 10 game grid. The player has a choice of placing the ships either vertically or horizonntally between coordinate parameters A-J and 1-8. Constant scoring updates and feedback updates the player throughout the game until the player has either won or lost.
+Blackjack Py is a command-line clasic card game, also refered to as 21. The object of the game is to get as close to the score of 21 without going over (known as "bust" or "busted"). A dealer (Traditionally in a Casino setting) will deal out 2 cards to themselves and t cards to the player. Cards 2 - 10 are worth their face value. For example, a 2 of hearts is worth 2 points. Kings, Queens and Jacks are worth 10 poits each.
+
+ The player has three choices: Hit: The dealer will deal out another card to the player, Stand: The Dealer will not deal out any cards to the player and will turn over their hidden card (Dealer shows 1 card to the player and one face down) to reveal how many points their 2 cards are worth, and Double Down: The player will choose to double their initial bet. If the player ends up with more than 21 points, the player looses and vice versa.
+
+ Money in the form of chips is usually used for the player to place bets. The player can choose how many chips (or money) they will bet on during that particular game (also known as a hand). If the player looses (explained above) the amount of money the player has bet on that hand is lost. If The player wins, the player wins double the amount of the bet.
+
+ Multiple hands are played until the player either chooses to end and cash in the chips for money, or looses all of the money.
 
 ## UX
 
@@ -40,60 +47,139 @@ Battleship Py is a CLI (Command-Line Interface) game that can be run with little
 | 03 | Young student learning python | I can play games like my parents did back in the day and have fun studying at school.| I can run this on single board computer projects for school and hobby.|
 
 ### Wireframes
-* No wireframes were required for this project.
+
+- No wireframes were required for this project.
+
 ## Features
-*Command-line Interface "vintage style" game easily run with little processor power and other resources from the computer, thus the ability to run on older computers.
-*Player has the added strategic ability of playing the ships, just like the original board game.
-*Clear instructions as to how to play the game.
-*Consistent score updates and game feedback to the player with every strategic move.
 
-### Existing Features
-*Intro welcome message with instructions.
+- The player is met with a start menu, allowing the choice to start the game or quit the game:
 
-![Welcome message](/images/project3intro.png)
+![](/readme-images/test-start-menu.png)
 
+- The player has the choice to quit the game after every hand played:
 
-![10 X 10 game grid](/images/project3gameplay.png)
+![](/readme-images/test-quit.png)
+
+- The player will be met with the game rules, money limit and a question of how much they would like to bet, to initiate game play:
+
+![](/readme-images/test-rules.png)
+
+-During the game: the player has seperate menu with the choices of Hit, Stand and Double Down:
+
+-The game play will show the cards of the player, the cards of the dealer using "#" to illustrate the hidden dealer card, the current score of the player.
+
+![](/readme-images/test-game-play.png)
+
+[ASCII CHR() CODE CHART for QTP UFT Selenium Playwright and Cypress](https://testguild.com/qtp-ascii-chr-code-chart/)
+
+-The cards were drawn by using the ASCII CHR() code chart. The cards are assembled in rows
+in a dict (array). the for loop enumerates the rows and prints them lines of the cards. A conditional statement in the display cards function determines if the card is facing down (BACKSIDE) or up.
+
+![](/readme-images/test-display-cards.png)
+
+### Blackjack Algorithm
+
+Certainly, here's an explanation of the algorithm for the Blackjack game you've implemented:
+
+1. **Initialization:**
+   - The game starts with a welcome message that explains the rules of Blackjack and presents a menu with options to start a new game or quit.
+
+2. **Main Menu:**
+   - The player is presented with a main menu where they can choose to play Blackjack or quit the game.
+   - If the player chooses to play, the `play_blackjack()` function is called.
+
+3. **Play Blackjack:**
+   - The game begins by initializing the player's starting money.
+   - The game loop starts, where the player plays rounds of Blackjack until they quit or run out of money.
+   - Inside the loop:
+     - The player is asked to place a bet for the current round. The bet is validated to ensure it's within the allowed range.
+     - The deck of cards is created and shuffled.
+     - Two cards are dealt to both the player and the dealer.
+     - The player's turn begins:
+       - The player's hand is displayed, and they are prompted to choose from available actions: Hit, Stand, or Double Down (if eligible).
+       - The chosen action is processed. If the player chooses to hit, a new card is added to their hand.
+       - If the player's hand exceeds 21 points (busts), their turn ends.
+     - The dealer's turn begins:
+       - If the player didn't bust, the dealer draws cards until their hand value reaches 17 or higher.
+       - If the dealer's hand exceeds 21 points, they bust.
+     - The final hands of the player and the dealer are displayed, and the winner of the round is determined:
+       - If the player's hand exceeds 21 points, the dealer wins.
+       - If the dealer's hand exceeds 21 points, the player wins.
+       - If neither busts, the higher hand wins. If the hands are tied, the bet is returned.
+     - The player's money is updated based on the outcome of the round.
+     - The player is presented with options to play a new game or quit.
+
+4. **End of Round Options:**
+   - After each round, the player is presented with options to play a new game or quit.
+   - If the player chooses to play a new game, the loop continues, and a new round begins.
+   - If the player chooses to quit, the game exits with a thank you message.
+
+5. **Card Values:**
+   - Card values are calculated by summing up the values of the cards in the hand.
+   - Number cards have their face value, face cards are worth 10, and Aces are worth 1 or 11, whichever is more beneficial.
+
+6. **User Input Validation:**
+   - User inputs, such as bets and actions, are validated to ensure they are within the allowed range and correspond to valid actions.
+
+7. **Graphics:**
+   - The game's visual appeal is enhanced by using ASCII art for the Blackjack logo and card representations.
+
+8. **Exiting the Game:**
+   - The game can be exited at various points, either by choosing to quit from the main menu or after each round.
+
+This algorithm outlines the flow and logic of your Blackjack game, from the main menu to playing rounds, making bets, handling player and dealer actions, determining winners, and providing options to continue or quit.
 
 ### Features Left to Implement
 
-* Describe some features that we would like to implement in the future
+- Describe some features that we would like to implement in the future
 
 *Add color to the game through Colorama included with python and some ASCII art.
 
 *Expand on the gameplay messages to expand the game.
 
-*Use GamePy for a complete 2D GUI expereince.
+*Use PyGame for a complete 2D GUI expereince.
 
 *Eventually devolp further as an Android app.
+
 ## Technologies Used
- 
-### Languages Used
-*[Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
-![Python](/images/python-logo-only.png)
+*[VSCode](https://en.wikipedia.org/wiki/Visual_Studio_Code)
 
-
-*[VS Code](https://en.wikipedia.org/wiki/Visual_Studio_Code)
-
-![VSCode](/images/vscodelogo.png)
+![VSCode](/readme-images/vscodelogo.png)
 
 *[Pycharm](https://en.wikipedia.org/wiki/JetBrainse)
 
-![VSCode](/images/PyCharmlogo.png)
+![PyCharm](/readme-images/PyCharmlogo.png)
 
 *[Heroku](https://en.wikipedia.org/wiki/Heroku)
 
-![Heroku](/images/herokulogo.png)
+![Heroku](/readme-images/herokulogo.png)
 
+### Languages Used
+
+*[Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+![Python](/readme-images/python-logo-only.png)
 
 ### Frameworks, Libraries & Programs Used
 
-*[Random](https://docs.python.org/3/library/random.html) 
+*[Random](https://docs.python.org/3/library/random.html)
+
+*[Black Formatter](https://black.readthedocs.io/en/stable/)
+
+*[Flake8](https://flake8.pycqa.org/en/latest/)
+
+*[CI Python Linter](https://pep8ci.herokuapp.com/)
 
 ## Testing
 
-PEP8, Pylint and Black Formatter was used to test and find errors. Only syntax errors were found. Renaming of functions and variables according to PEP8 documentation was carried out and refactored using PyCharm before confirming and copying over to VSCode in Gitpod. 
+CI Linter, Flake8 and Black Formatter was used to test and find errors. Only syntax errors were found. Renaming of functions and variables according to PEP8 documentation was carried out and refactored using PyCharm before confirming and copying over to VSCode in Gitpod.
+
+The only errors encountered were formatting errors and errors thrown by the linter:
+
+E203, E266, E501, W503
+
+This was fixed by adding both a .flake8 flie and pyproject.toml to the root of the project.
 
 ## Deployment
 
@@ -145,37 +231,40 @@ This program was deployed to Heroku, following the below steps:
 
     The link to my Heroku app is: https://cli-battleship-game.herokuapp.com/
 
-
-
-
 ### Forking the GitHub Repository
 
 The following steps can be used to fork the GitHub repository:
-* On GitHub navigate to the main page of the repository.
-* The 'Fork' button can be found on the top righthand side of the screen.
-* Click the button to create a copy of the original repository.
+
+- On GitHub navigate to the main page of the repository.
+- The 'Fork' button can be found on the top righthand side of the screen.
+- Click the button to create a copy of the original repository.
 
 ### Cloning the GitHub Repository
 
 The following steps can be used to clone the GitHub repository:
-* On GitHub navigate to the main page of the repository.
-* Above the list of files select 'Code'.
-* Three options are provided, HTTPS, SSH and GitHub CLI. Select the appropriate option and click the 'Copy' button next to the URL.
-* Open Git Bash.
-* Change the working directory to the location for the cloned directory.
-* Type git clone and paste the copied URL.
-* Press 'Enter' to create the clone.
 
-## Credits
+- On GitHub navigate to the main page of the repository.
+- Above the list of files select 'Code'.
+- Three options are provided, HTTPS, SSH and GitHub CLI. Select the appropriate option and click the 'Copy' button next to the URL.
+- Open Git Bash.
+- Change the working directory to the location for the cloned directory.
+- Type git clone and paste the copied URL.
+- Press 'Enter' to create the clone.
 
 ### Code
 
-* Credit and articles etc that we have copied code from
+*[Blackjack functional Programming](https://github.com/plemaster01/pygameBlackjack/blob/main/pygame_blackjack.py)
 
-*[PEP8](https://peps.python.org/pep-0008/)
+*[Real Python](https://realpython.com/lessons/random-data-generation-python/)
 
-*[Al Sweigart, Author of Python Text Books for No Startch Press](https://alsweigart.com/)
+## Credits
 
-* Any other credits
+- Credit and articles etc that we have copied code from
 
-https://github.com/Stephanie-Ash/suburban-walking/blob/master/README.md
+*[ASCII CHR() CODE CHART for QTP UFT Selenium Playwright and Cypress](https://testguild.com/qtp-ascii-chr-code-chart/)
+
+*[Blackjack functional Programming](https://github.com/plemaster01/pygameBlackjack/blob/main/pygame_blackjack.py)
+
+*[Real Python](https://realpython.com/lessons/random-data-generation-python/)
+
+- Any other credits
