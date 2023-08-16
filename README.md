@@ -8,23 +8,25 @@ Readme.md
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [UX](#ux)
-  - [User Stories](#user-stories)
-  - [Wireframes](#wireframes)
-- [Features](#features)
-  - [Existing Features](#existing-features)
-  - [Features Left to Implement](#features-left-to-implement)
-- [Technologies Used](#technologies-used)
-  - [Languages Used](#languages-used)
-  - [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [Credits](#credits)
-  - [Code](#code)
-  - [Content](#content)
-  - [Media](#media)
-  - [Other](#other)
+- [**BLACKJACK PY**](#blackjack-py)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [UX](#ux)
+    - [User Stories](#user-stories)
+    - [Wireframes](#wireframes)
+  - [Features](#features)
+    - [Blackjack Algorithm](#blackjack-algorithm)
+    - [Features Left to Implement](#features-left-to-implement)
+  - [Technologies Used](#technologies-used)
+    - [Languages Used](#languages-used)
+    - [Frameworks, Libraries \& Programs Used](#frameworks-libraries--programs-used)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
+    - [Heroku](#heroku)
+    - [Forking the GitHub Repository](#forking-the-github-repository)
+    - [Cloning the GitHub Repository](#cloning-the-github-repository)
+    - [Code](#code)
+  - [Credits](#credits)
 
 ## Introduction
 
@@ -40,11 +42,11 @@ Blackjack Py is a command-line clasic card game, also refered to as 21. The obje
 
 ### User Stories
 
-| ID | As a... | I Want To Be Able To... | So That I Can...|
-| --- | --- | --- | --- |
-| 01 | Game Enthusiast | a simple card game | Simple instructions at beginning of game. I have the ability to strategically place my ships as I can with the board game. Game also gives me contant score updates and feedback on invalid coordinates, as well as if I have won or lost.|
-| 02 | Older middle-aged vintage computers enthusiast| Classic CLI game for nostalgia.| I can relive my childhood by running a good old fashioined commandline game.Easy to run and can play whilst doing other tasks on my computer.|
-| 03 | Young student learning python | I can play games like my parents did back in the day and have fun studying at school.| I can run this on single board computer projects for school and hobby.|
+| ID  | As a...                                        | I Want To Be Able To...                                                               | So That I Can...                                                                                                                                                                                                                           |
+| --- | ---------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 01  | Game Enthusiast                                | a simple card game                                                                    | Simple instructions at beginning of game. I have the ability to strategically place my ships as I can with the board game. Game also gives me contant score updates and feedback on invalid coordinates, as well as if I have won or lost. |
+| 02  | Older middle-aged vintage computers enthusiast | Classic CLI game for nostalgia.                                                       | I can relive my childhood by running a good old fashioined command-line game.Easy to run and can play whilst doing other tasks on my computer.                                                                                             |
+| 03  | Young student learning python                  | I can play games like my parents did back in the day and have fun studying at school. | I can run this on single board computer projects for school and hobby.                                                                                                                                                                     |
 
 ### Wireframes
 

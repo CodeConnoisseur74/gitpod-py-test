@@ -28,5 +28,7 @@
    "[python]": {
       "editor.defaultFormatter": "ms-python.black-formatter"
    },
-   "editor.wordWrap": "on"
+   "editor.wordWrap": "on",
+   "markdown.extension.preview.autoShowPreviewToSide": true,
+   "markdown.extension.print.theme": "dark"
 }
