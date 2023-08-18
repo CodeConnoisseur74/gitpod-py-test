@@ -30,5 +30,6 @@
    },
    "editor.wordWrap": "on",
    "markdown.extension.preview.autoShowPreviewToSide": true,
-   "markdown.extension.print.theme": "dark"
+   "markdown.extension.print.theme": "dark",
+   "workbench.experimental.share.enabled": false
 }
