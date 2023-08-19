@@ -20,7 +20,7 @@
       "**/CVS": true
    },
    "files.autoSave": "afterDelay",
-   "workbench.colorTheme": "Visual Studio Dark",
+   "workbench.colorTheme": "Wildberries Darker",
    "editor.defaultFormatter": null,
    "editor.formatOnSave": true,
    "editor.formatOnPaste": false,
