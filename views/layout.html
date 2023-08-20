@@ -10,31 +10,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/attach/attach.js"></script>
     <title>PyBlackjack</title>
     <style>
-        body {
-            font-family: Arial;
-        }
-
-        #main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        #background {
-            margin: 0;
-            padding: 0;
-            background-image: url(https://res.cloudinary.com/dolhueou9/image/upload/v1692468929/red-black-blackjack-bg_tc2bpj.png);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-        }
-
         /**
         * Default styles for xterm.js
         */
+
+        body {
+            font-family: Arial;
+            background-image: url(https://res.cloudinary.com/dolhueou9/image/upload/v1692536583/blackjack.bg_shrd1r.png);
+            background-size: cover;
+            display: flex;
+            padding-top: 7.5em;
+            align-content: center;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
 
         .xterm {
             font-feature-settings: "liga" 0;
@@ -186,9 +176,6 @@
     </style>
 </head>
 
-<body>
-    <main id="main-container">@{body}</main>
-    <div id="background"></div>
-</body>
+@{body}
 
 </html>
