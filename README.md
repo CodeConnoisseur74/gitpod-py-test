@@ -2,9 +2,8 @@ Readme.md
 
 # **BLACKJACK PY**
 
-![Live Project Mockup](https://ui.dev/amiresponsive?url=https://battleship-py.herokuapp.com/)
-
-[Link to Live Project](https://battleship-py.herokuapp.com/)
+![Live Project Mockup](/readme-images/amiresponsive.png)
+[Link to Live Project](https://pyblackjack-e3fb5b12d78b.herokuapp.com/)
 
 ## Table of Contents
 
@@ -231,7 +230,7 @@ This program was deployed to Heroku, following the below steps:
 
     The app should appear in a new tab on the web browser
 
-    The link to my Heroku app is: https://cli-battleship-game.herokuapp.com/
+    The link to my Heroku app is: https://pyblackjack-e3fb5b12d78b.herokuapp.com/
 
 ### Forking the GitHub Repository
 
