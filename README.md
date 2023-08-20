@@ -150,7 +150,7 @@ This algorithm outlines the flow and logic of your Blackjack game, from the main
 
 *[Pycharm](https://en.wikipedia.org/wiki/JetBrainse)
 
-![PyCharm](/readme-images/PyCharmlogo.png)
+![PyCharm](/readme-images/pycharmlogo.png)
 
 *[Heroku](https://en.wikipedia.org/wiki/Heroku)
 
